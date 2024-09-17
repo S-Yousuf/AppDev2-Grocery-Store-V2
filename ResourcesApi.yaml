@@ -1,0 +1,161 @@
+-- -
+info:
+  title: Resources for Grocery Store App
+  version: 1.0.0
+paths:
+  /api/add_category:
+    post:
+      summary: Create a new category
+      responses:
+        '200':
+          description: Category created successfully
+  /api/categories:
+    get:
+      summary: Get all categories
+      responses:
+        '200':
+          description: A list of categories
+  /api/delete_category/{c_id}:
+    delete:
+      summary: Delete a category
+      parameters:
+        - name: c_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Category deleted successfully
+  /api/category/{c_id}:
+    get:
+      summary: Get a category
+      parameters:
+        - name: c_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A single category
+    put:
+      summary: Update a category
+      parameters:
+        - name: c_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Category updated successfully
+  /api/approve_category/{c_id}:
+    put:
+      summary: Approve a category
+      parameters:
+        - name: c_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Category approved successfully
+  /api/add_product/{c_id}:
+    post:
+      summary: Add a product to a category
+      parameters:
+        - name: c_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Product added successfully
+  /api/products/{c_id}:
+    get:
+      summary: Get all products in a category
+      parameters:
+        - name: c_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of products
+  /api/update_product/{p_id}:
+    put:
+      summary: Update a product
+      parameters:
+        - name: p_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Product updated successfully
+  /api/all_products:
+    get:
+      summary: Get all products
+      responses:
+        '200':
+          description: A list of all products
+  /api/product/{p_id}:
+    get:
+      summary: Get a product
+      parameters:
+        - name: p_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A single product
+  /api/cart/{u_id}:
+    get:
+      summary: Get a user's cart
+      parameters:
+        - name: u_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A user's cart
+  /api/add_to_cart:
+    post:
+      summary: Add a product to the cart
+      responses:
+        '200':
+          description: Product added to cart successfully
+  /api/update_cart/{p_id}:
+    put:
+      summary: Update a product in the cart
+      parameters:
+        - name: p_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Cart updated successfully
+  /api/checkout/{u_id}:
+    post:
+      summary: Checkout a user's cart
+      parameters:
+        - name: u_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Checkout successful
+...
